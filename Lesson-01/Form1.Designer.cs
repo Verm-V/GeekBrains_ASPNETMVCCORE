@@ -72,7 +72,7 @@ namespace Lesson_01
 			this.DelayValue.Name = "DelayValue";
 			this.DelayValue.Size = new System.Drawing.Size(17, 20);
 			this.DelayValue.TabIndex = 0;
-			this.DelayValue.Text = "5";
+			this.DelayValue.Text = "0";
 			// 
 			// Start
 			// 
