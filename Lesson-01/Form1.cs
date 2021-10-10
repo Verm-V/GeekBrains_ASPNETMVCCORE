@@ -15,8 +15,9 @@ namespace Lesson_01
 		/// <summary>Флаг того, что треды были запущены</summary>
 		private bool processStarted = false;
 
-		Counter counter;
-		Fibonachi fibonachi;
+		private Counter counter;
+		private Fibonachi fibonachi;
+		private Metrics metrics;
 
 
 		public Form1()
@@ -26,16 +27,13 @@ namespace Lesson_01
 			_tokenSource = new CancellationTokenSource();
 		}
 
-		private void label1_Click(object sender, EventArgs e)
-		{
-		}
-
 		private void button1_Click(object sender, EventArgs e)
 		{
 			if (!processStarted)
 			{
 				counter = new Counter(_tokenSource, _resetEvent, DelayValue, "counterThread");
 				fibonachi = new Fibonachi(_tokenSource, _resetEvent, FibonachiValue, "fibonachiThread");
+				metrics = new Metrics(_tokenSource, _resetEvent, MetricsValue, "metricsThread");
 				processStarted = true;
 			}
 		}
