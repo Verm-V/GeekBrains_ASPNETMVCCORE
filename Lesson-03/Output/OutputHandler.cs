@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace Lesson_03.Output
@@ -29,6 +28,7 @@ namespace Lesson_03.Output
 		{
 			Flush();
 			Console.SetCursorPosition(0, 0);
+			var sss = _outputBuffer.ToString();
 			Console.Write(_outputBuffer);
 		}
 
@@ -52,7 +52,7 @@ namespace Lesson_03.Output
 			}
 		}
 
-		public void DrawFrame(int row, int col, int height, int width)
+		public void DrawBox(int row, int col, int height, int width)
 		{
 			if (CheckCoordinates(row, col) && CheckCoordinates(row + height - 1, col + width - 1))
 			{
@@ -112,6 +112,5 @@ namespace Lesson_03.Output
 			normalBright = bright >= _bright.Length ? _bright.Length - 1 : bright;
 			return normalBright;
 		}
-
 	}
 }

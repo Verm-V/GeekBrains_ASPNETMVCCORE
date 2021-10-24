@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using System.Text;
-
-namespace Lesson_03.Fractals
+﻿namespace Lesson_03.Fractals
 {
 	/// <summary>
 	/// Отвечает за рассчет и вывод фрактала на экран
@@ -15,11 +10,6 @@ namespace Lesson_03.Fractals
 		/// Сброс координат и увеличения в изначальное состояние
 		/// </summary>
 		public void ResetState();
-
-		/// <summary>
-		/// Рассчет очередного кадра и помещение его в экранный буфер
-		/// </summary>
-		public void CalculateAndRenderFrame();
 
 		/// <summary>
 		/// Сдвиг отображения фрактала

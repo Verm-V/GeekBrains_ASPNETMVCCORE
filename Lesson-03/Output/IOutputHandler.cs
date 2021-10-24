@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-
-namespace Lesson_03.Output
+﻿namespace Lesson_03.Output
 {
 	/// <summary>
 	/// Хэндлер отвечающий за вывод на экран
@@ -14,7 +9,7 @@ namespace Lesson_03.Output
 	public interface IOutputHandler
 	{
 		/// <summary>Ширина экранной области</summary>
-		public int Width {get; }
+		public int Width { get; }
 
 		/// <summary>Высота экранной области</summary>
 		public int Height { get; }
@@ -51,6 +46,6 @@ namespace Lesson_03.Output
 		/// <param name="col">Координата X начала рамки</param>
 		/// <param name="height">Высота рамки</param>
 		/// <param name="width">Ширина рамки</param>
-		public void DrawFrame(int row, int col, int height, int width);
+		public void DrawBox(int row, int col, int height, int width);
 	}
 }

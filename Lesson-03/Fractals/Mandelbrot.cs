@@ -1,7 +1,5 @@
 ﻿using Lesson_03.Output;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Lesson_03.Fractals
 {
@@ -57,7 +55,7 @@ namespace Lesson_03.Fractals
 			_output = outputHandler;
 			_mi = _output.MaxBright + 1;
 			_width = _output.Width - 2;
-			_height = _output.Height - 6;
+			_height = _output.Height - 8;
 			ResetState();
 		}
 
@@ -68,12 +66,14 @@ namespace Lesson_03.Fractals
 			zoomX = _defaultZoomX;
 			zoomY = _defaultZoomY;
 			details = _defaultDetails;
+			CalculateNextFrame();
 		}
 
 		public void Move(int dx, int dy)
 		{
 			coordX += coordStep * Math.Sign(dx);
 			coordY += coordStep * Math.Sign(dy);
+			CalculateNextFrame();
 		}
 
 		public void ChangeZoom(int dz)
@@ -82,11 +82,12 @@ namespace Lesson_03.Fractals
 			zoomY -= zoomStep * Math.Sign(dz);
 			coordX -= zoomStep * Math.Sign(dz) / 2;
 			coordY += zoomStep * Math.Sign(dz) / 2;
+			CalculateNextFrame();
 		}
 
 		public void ChangeDetails(int delta)
 		{
-			switch(Math.Sign(delta))
+			switch (Math.Sign(delta))
 			{
 				case 1:
 					details *= detailsStep;
@@ -95,13 +96,9 @@ namespace Lesson_03.Fractals
 					details /= detailsStep;
 					break;
 			}
+			CalculateNextFrame();
 		}
 
-		public void CalculateAndRenderFrame()
-		{
-			CalculateNextFrame();
-			_output.RenderOutput();
-		}
 
 		/// <summary>
 		/// Рассчет очередного кадра

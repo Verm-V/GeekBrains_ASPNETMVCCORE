@@ -1,10 +1,9 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using NLog;
-using NLog.Extensions.Logging;
-using Lesson_03.Application;
-using Lesson_03.Output;
+﻿using Lesson_03.Application;
+using Lesson_03.Commands;
 using Lesson_03.Fractals;
+using Lesson_03.Output;
+using Microsoft.Extensions.DependencyInjection;
+using NLog.Extensions.Logging;
 
 namespace Lesson_03
 {
@@ -23,7 +22,6 @@ namespace Lesson_03
 					App app = serviceProvider.GetService<App>();
 					app.Run();
 				}
-
 			}
 		}
 
@@ -37,16 +35,19 @@ namespace Lesson_03
 			services.AddTransient<App>();
 
 			// Сервис отвечающий за вывод на экран
-			services.AddSingleton<IOutputHandler, OutputHandler>();
+			services.AddScoped<IOutputHandler, OutputHandler>();
 
 			// Сервис рассчета фрактала
-			services.AddSingleton<IFractal, Mandelbrot>();
+			services.AddScoped<IFractal, Mandelbrot>();
 
+			// Выполнятель комманд
+			services.AddScoped<IInvoker, Invoker>();
+
+			// Логгирование
 			services.AddLogging(builder =>
 			{
 				builder.AddNLog("nlog.config");
 			});
 		}
-
 	}
 }
