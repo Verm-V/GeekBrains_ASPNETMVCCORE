@@ -4,10 +4,8 @@ namespace Lesson_03.Commands
 {
 	class CommandReset : ICommand
 	{
-		/// <summary>Получатель комманды</summary>
+		/// <summary>Получатель команды</summary>
 		private readonly IFractal _fractal;
-		/// <summary>Направление движения</summary>
-		private readonly int _direction;
 
 		public CommandReset(IFractal fractal)
 		{

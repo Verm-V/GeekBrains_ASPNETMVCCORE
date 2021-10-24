@@ -15,7 +15,7 @@ namespace Lesson_03.Application
 		private readonly IOutputHandler _output;
 		/// <summary>Сервис считающий фрактал</summary>
 		private readonly IFractal _fractal;
-		/// <summary>Выполнятель комманд</summary>
+		/// <summary>Выполнятель команд</summary>
 		private readonly IInvoker _invoker;
 
 		public App(IOutputHandler outputHandler, IFractal fractal, IInvoker invoker)
@@ -83,7 +83,7 @@ namespace Lesson_03.Application
 		}
 
 		/// <summary>
-		/// Обработчик ввода использующий паттерн ICommand
+		/// Обработчик ввода использующий паттерн Command
 		/// В отдельный класс не стал выносить, т.к. не критично для задачи.
 		/// </summary>
 		private bool InputHandler()

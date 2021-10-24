@@ -5,7 +5,7 @@ namespace Lesson_03.Commands
 {
 	public class Invoker : IInvoker
 	{
-		/// <summary>Стек для хранения выполненных комманд</summary>
+		/// <summary>Стек для хранения выполненных команд</summary>
 		private readonly Stack<ICommand> _commands;
 		/// <summary>Логгер</summary>
 		private readonly ILogger _logger;

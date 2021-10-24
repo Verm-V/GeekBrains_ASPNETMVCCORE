@@ -5,9 +5,9 @@ namespace Lesson_03.Commands
 {
 	class CommandDetails : ICommand
 	{
-		/// <summary>Получатель комманды</summary>
+		/// <summary>Получатель команды</summary>
 		private readonly IFractal _fractal;
-		/// <summary>Направление движения</summary>
+		/// <summary>Направление изменения</summary>
 		private readonly int _direction;
 
 		public CommandDetails(IFractal fractal, int direction)
